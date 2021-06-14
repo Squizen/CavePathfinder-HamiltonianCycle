@@ -5,5 +5,7 @@ public class Main {
         MyFileReader myFileReader = new MyFileReader();
         CaveData caveData = myFileReader.readFile("src/main/resources/CAV.IN");
 
+        PathFinder pathFinder = new PathFinder();
+        pathFinder.findTheGreatestPath(caveData, 1);
     }
 }
