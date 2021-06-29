@@ -9,6 +9,10 @@ public class Chamber {
         this.chamberID = chamberID;
         this.isVisited = isVisited;
     }
+    public Chamber(Chamber chamber){
+        this.chamberID = chamber.getChamberID();
+        this.isVisited = chamber.isVisited();
+    }
 
     public int getChamberID() {
         return chamberID;

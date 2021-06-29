@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class MyFileReader {
 
-    public CaveData readFile(String fileAddress){
+    public static CaveData readFile(String fileAddress){
         try{
             File file = new File(fileAddress);
             BufferedReader bufferedReader = new BufferedReader(
