@@ -15,6 +15,7 @@ public class PathFinder {
     private Random random;
 
     private int snapNumber = 1;
+    private int numberOfSteps = 0;
 
     public PathFinder(String fileAddress, int idOfStartingChamber){
         this.caveData = MyFileReader.readFile(fileAddress);
@@ -143,6 +144,7 @@ public class PathFinder {
             if(areAllChambersVisited){
                 if(checkIfCurrentChamberIsNeighbourOfStartingChamber()){
                     System.out.println("Rozwiązanie - " + currentRoute);
+                    System.out.println("Rozwiązanie znalezione w " + numberOfSteps + " krokach");
                 } else {
                     makeAStepBackward();
                     areAllChambersVisited = false;
@@ -200,6 +202,7 @@ public class PathFinder {
         chamberVisitingSequence.add(destinationChamber.getChamberID());
         currentChamber = destinationChamber;
         System.out.println(currentRoute + " ->");
+        numberOfSteps++;
     }
 
     private void makeAStepBackward(){
@@ -208,6 +211,7 @@ public class PathFinder {
         currentChamber = caveData.getChamberByID(chamberVisitingSequence.get(chamberVisitingSequence.size()-1));
         currentRoute = deleteLatestChamberFromRoute();
         System.out.println(currentRoute + " <-");
+        numberOfSteps++;
     }
 
     private void takeASnapshotOfCurrentPosition(){
